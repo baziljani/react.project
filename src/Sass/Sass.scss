@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+// General Styles
+.Sass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke;
+
+    .cards {
+        position: relative;
+        width: 350px;
+        padding: 30px;
+        border-radius: 10px;
+        background: whitesmoke;
+        box-shadow: 0 0 30px black;
+        // border: 10px solid whitesmoke;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // Header Section
+        .cards-header {
+            position: absolute;
+            top: 15px;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+
+            i {
+                font-size: 20px;
+                color: #31344b;
+                background: #ecf0f3;
+                border-radius: 90%;
+                height: 35px;
+                width: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 5px black;
+                cursor: pointer;
+                transition: 0.3s ease;
+
+                &:hover {
+                    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+                }
+            }
+        }
+
+        // Profile Image
+        .img {
+            margin: 20px 0;
+
+            .profile-img {
+                height: 120px;
+                width: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 10px solid rgb(230, 218, 218);
+                // box-shadow: -3px -3px 7px #dbcfcf, 3px 3px 5px #c3c3e2;
+                box-shadow: 0 0 10px rgb(179, 168, 168);
+            }
+            .img:hover{
+                box-shadow: 0 0 20px black;
+                // color: aqua;
+                .profile-img {
+                        transform: scale(1.1); // Scale the image on hover
+                        box-shadow: 0 0 20px black; // Change box shadow on hover
+                    }
+            }
+        }
+
+        // Content Section
+        .content {
+            text-align: center;
+
+            h1 {
+                font-size: 24px;
+                font-weight: 600;
+                color: #31344b;
+            }
+
+            p {
+                font-size: 16px;
+                color: #44476a;
+                margin-top: 5px;
+            }
+        }
+
+        // Social Media Icons
+        .icon {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+
+            i {
+                font-size: 20px;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                text-align: center;
+                border-radius: 50%;
+                background: #ecf0f3;
+                box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+                transition: 0.3s ease;
+
+                &:hover {
+                    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+                }
+
+                &.fa-facebook {
+                    color: #4267B2;
+                }
+
+                &.fa-twitter {
+                    color: #1DA1F2;
+                }
+
+                &.fa-instagram {
+                    color: #E1306C;
+                }
+
+                &.fa-youtube {
+                    color: #FF0000;
+                }
+            }
+        }
+
+        // Action Buttons
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+
+            button {
+                flex: 1;
+                padding: 12px;
+                background: #ecf0f3;
+                color: #31344b;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: 500;
+                box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+                cursor: pointer;
+                transition: 0.3s ease;
+
+                &:hover {
+                    box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+                }
+            }
+        }
+
+        // Social Share Section
+        .social-share {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 0 15px;
+            width: 100%;
+
+            .row {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 16px;
+                color: #31344b;
+                cursor: pointer;
+                position: relative;
+
+                i {
+                    font-size: 18px;
+                    transition: color 0.3s ease, transform 0.3s ease;
+
+                    &.icon-2 {
+                        position: absolute;
+                        // left: 0;
+                        // top: 50%;
+                        // margin-left: 5px;
+                        transform: scale(0);
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: all 0.3s ease;
+                    }
+                }
+
+                &:hover {
+                    i {
+                        color: #007bff;
+
+                        &.icon-2 {
+                            transform: scale(1);
+                            opacity: 1;
+                            pointer-events: auto;
+                        }
+                    }
+
+                    span {
+                        color: #007bff;
+                    }
+                }
+
+                span {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #44476a;
+                    transition: color 0.3s ease;
+                }
+            }
+        }
+    }
+
+
+// Responsive Design
+@media screen and (max-width: 768px) {
+    .Sass .cards {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .Sass .social-share {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Sass .cards {
+        padding: 15px;
+    }
+
+    .Sass .social-share .row span {
+        font-size: 12px;
+    }
+}
+}
