@@ -1,16 +1,37 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Sass.scss';
 import BazilPic from './images/Bazil_pic.jpg';
 
 const Sass = () => {
+    const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+    // Toggle theme function
+    const toggleTheme = () => {
+        setIsDarkTheme(prevTheme => !prevTheme);
+    };
+
+    // Effect to apply dark theme class
+    useEffect(() => {
+        const body = document.querySelector('.Sass');
+        if (isDarkTheme) {
+            body.classList.add('dark-theme');
+        } else {
+            body.classList.remove('dark-theme');
+        }
+    }, [isDarkTheme]);
+
     return (
-        // {Profile Cards}
-         <div className="Sass">
+        <div className="Sass">
             <div className="cards">
                 {/* Header Section */}
                 <div className="cards-header">
                     <i className="fa-solid fa-arrow-left"></i>
+                    <i 
+                        className={`fa-regular ${isDarkTheme ? 'fa-moon' : 'fa-sun'} change-theme`} 
+                        id='theme-toggle' 
+                        onClick={toggleTheme}
+                    ></i>
                     <i className="fa-solid fa-ellipsis-vertical"></i>
                 </div>
 
@@ -65,4 +86,4 @@ const Sass = () => {
     );
 };
 
-export default Sass; 
+export default Sass;

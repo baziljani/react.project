@@ -7,30 +7,41 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root {
+    --background-color: whitesmoke;
+    --text-color: #31344b;
+}
+
+.dark-theme {
+    --background-color: #2c2c2c;
+    --text-color: #ffffff;
+}
+
 // General Styles
 .Sass {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: whitesmoke;
+    background: var(--background-color);
 
     .cards {
         position: relative;
         width: 350px;
         padding: 30px;
         border-radius: 10px;
-        background: whitesmoke;
+        background: var(--background-color);
         box-shadow: 0 0 30px black;
-        // border: 10px solid whitesmoke;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        color: var(--text-color);
+
         // Header Section
         .cards-header {
             position: absolute;
-            top: 15px;
+            top: 10px;
             width: 90%;
             display: flex;
             justify-content: space-between;
@@ -40,8 +51,8 @@
                 color: #31344b;
                 background: #ecf0f3;
                 border-radius: 90%;
-                height: 35px;
-                width: 35px;
+                height: 30px;
+                width: 30px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -65,16 +76,16 @@
                 border-radius: 50%;
                 object-fit: cover;
                 border: 10px solid rgb(230, 218, 218);
-                // box-shadow: -3px -3px 7px #dbcfcf, 3px 3px 5px #c3c3e2;
                 box-shadow: 0 0 10px rgb(179, 168, 168);
             }
-            .img:hover{
+
+            .img:hover {
                 box-shadow: 0 0 20px black;
-                // color: aqua;
+
                 .profile-img {
-                        transform: scale(1.1); // Scale the image on hover
-                        box-shadow: 0 0 20px black; // Change box shadow on hover
-                    }
+                    transform: scale(1.1); // Scale the image on hover
+                    box-shadow: 0 0 20px black; // Change box shadow on hover
+                }
             }
         }
 
@@ -85,12 +96,12 @@
             h1 {
                 font-size: 24px;
                 font-weight: 600;
-                color: #31344b;
+                color: #404886;
             }
 
             p {
                 font-size: 16px;
-                color: #44476a;
+                color: #636797;
                 margin-top: 5px;
             }
         }
@@ -184,9 +195,6 @@
 
                     &.icon-2 {
                         position: absolute;
-                        // left: 0;
-                        // top: 50%;
-                        // margin-left: 5px;
                         transform: scale(0);
                         opacity: 0;
                         pointer-events: none;
@@ -199,7 +207,7 @@
                         color: #007bff;
 
                         &.icon-2 {
-                            transform: scale(1);
+                            transform: scale( 1);
                             opacity: 1;
                             pointer-events: auto;
                         }
@@ -220,28 +228,27 @@
         }
     }
 
+    // Responsive Design
+    @media screen and (max-width: 768px) {
+        .Sass .cards {
+            width: 100%;
+            padding: 20px;
+        }
 
-// Responsive Design
-@media screen and (max-width: 768px) {
-    .Sass .cards {
-        width: 100%;
-        padding: 20px;
+        .Sass .social-share {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
     }
 
-    .Sass .social-share {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-}
+    @media screen and (max-width: 480px) {
+        .Sass .cards {
+            padding: 15px;
+        }
 
-@media screen and (max-width: 480px) {
-    .Sass .cards {
-        padding: 15px;
+        .Sass .social-share .row span {
+            font-size: 12px;
+        }
     }
-
-    .Sass .social-share .row span {
-        font-size: 12px;
-    }
-}
 }
